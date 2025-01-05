@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    background: #0e1538;
+}
+
+.lweaxo {
+    display: flex; /* Esnek kutu düzeni */
+    justify-content: center; /* Elemanları yatayda ortala */
+    align-items: center; /* Elemanları dikeyde ortala */
+    position: absolute; /* Kesin konumlandırma */
+    top: 20%; /* Üstten biraz aşağıda konumlandır */
+    left: 50%; /* Soldan %50 */
+    transform: translate(-50%, -20%); /* Tam merkezi konumlandır */
+    flex-wrap: wrap; /* İçeriğin taşmasını önlemek için sar */
+    width: 80%; /* Genişlik ayarı */
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,255,0,1) 50%, rgba(0,0,255,1) 100%); /* RGB geçişli arka plan */
+    padding: 20px; /* İçerik boşluğu */
+    border-radius: 15px; /* Kenar yuvarlama */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Gölgelendirme efekti */
+}
+
+.lweaxo b {
+    text-transform: uppercase; /* Yazıyı büyük yapar */
+    color: #690327; /* Mavi renk */
+    font-size: 2em; /* Yazıyı büyütür (isteğe göre ayarlayın) */
+}
+
+
+a {
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 40px;
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+a:hover {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+                0 0 30px var(--clr),
+                0 0 60px var(--clr),
+                0 0 100px var(--clr);
+}
+
+a::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 400%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.33s * var(--i));
+}
+
+a:hover::before {
+    width: 120%;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    background: #0e1538;
+    inset: 4px;
+    transition: 0.5s;
+}
+
+a:hover::after {
+    background: var(--clr);
+}
+
+a span {
+    position: relative;
+    z-index: 1;
+    font-size: 2em;
+    color: #fff;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+
+a:hover span {
+    opacity: 1;
+    color: #0e1538;
+}
